@@ -1,15 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SweetShop
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IUser<string>
     {
+        public ApplicationUser()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
+
+        public ApplicationUser(string userName) : this()
+        {
+            UserName = userName;
+        }
+
+        public string Id { get; }
+
+        public string UserName { get; set; }
     }
 }

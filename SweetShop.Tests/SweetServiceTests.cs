@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Microsoft.AspNet.Identity;
 
@@ -30,8 +26,7 @@ namespace SweetShop.Tests
             mockUserStore.Setup(x => x.FindByIdAsync(userId))
                 .ReturnsAsync(new ApplicationUser()
                 {
-                    Id = userId,
-                    Email = "test@email.com"
+                    UserName = "test@email.com"
                 });
 
             mockUserRoleStore.Setup(x => x.IsInRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
