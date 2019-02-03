@@ -21,7 +21,7 @@ namespace SweetShop.Tests
 
             var mockUserStore = new Mock<IUserStore<ApplicationUser>>();
             var mockUserRoleStore = mockUserStore.As<IUserRoleStore<ApplicationUser>>();
-            var userManager = new UserManager<ApplicationUser>(mockUserStore.Object);
+            var userManager = new UserManager<ApplicationUser>(mockUserStore.Object, null, null, null, null, null, null, null, null);
 
             mockUserStore.Setup(x => x.FindByIdAsync(userId))
                 .ReturnsAsync(new ApplicationUser()
